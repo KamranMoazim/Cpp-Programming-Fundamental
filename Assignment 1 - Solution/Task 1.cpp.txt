@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int h, w;
+
+    cout << "Enter Height : \n";
+    cin >> h;
+    cout << "Enter Width : \n";
+    cin >> w;
+
+    if (h==w);
+    {
+        cout << "Dimensions show it is a Square.";
+        return 0;
+    }
+    cout << "Dimensions show it is not a Square.";
+    return 0;
+}

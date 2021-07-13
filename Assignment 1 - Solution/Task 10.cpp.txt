@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int number, reverseNumber=0, remainder;
+    int fourthNum, thirdNum, secondNum, firstNum, worker;
+
+    cout << "Enter Number : \n";
+    cin >> number;
+
+    // This Method is only for FOUR DIGITS
+    worker = number;
+    fourthNum = worker % 10;
+    worker = worker / 10;
+    thirdNum = worker % 10;
+    worker = worker / 10;
+    secondNum = worker % 10;
+    worker = worker / 10;
+    firstNum = worker % 10;
+    cout << "Reverse of Your Entered Number is : " << (fourthNum*1000) + (thirdNum*100) + (secondNum*10) + firstNum << endl;
+
+
+    // This Method is for anu Number of DIGITS
+    while (number != 0) {
+        remainder = number % 10;
+        reverseNumber = reverseNumber * 10 + remainder;
+        number = number / 10;
+    }
+
+    cout << "Reverse of Your Entered Number is : " << reverseNumber;
+
+    return 0;
+}

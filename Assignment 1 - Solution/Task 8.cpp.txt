@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int year;
+    bool leapOrNot;
+
+    cout << "Enter Year : \n";
+    cin >> year;
+
+    if ( year % 400 == 0 ) {
+        cout << "You Entered year is Leap.";
+    }
+    else {
+        cout << "You Entered year is Not Leap.";
+    }
+
+    return 0;
+}

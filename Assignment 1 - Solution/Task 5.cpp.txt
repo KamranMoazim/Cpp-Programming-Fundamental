@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int personOneAge, personTwoAge, personThreeAge;
+
+    cout << "Enter Age of First Person : \n";
+    cin >> personOneAge;
+    cout << "Enter Age of Second Person : \n";
+    cin >> personTwoAge;
+    cout << "Enter Age of Third Person : \n";
+    cin >> personThreeAge;
+
+    if ((personOneAge > personTwoAge) && (personOneAge > personThreeAge)) {
+        cout << "First Prson is the Oldest Person.";
+    }
+    else if ((personTwoAge > personOneAge) && (personTwoAge > personThreeAge)) {
+        cout << "Second Prson is the Oldest Person.";
+    }
+    else {
+        cout << "Third Prson is the Oldest Person.";
+    }
+
+    cout << endl;
+
+    if ((personOneAge < personTwoAge) && (personOneAge < personThreeAge)) {
+        cout << "First Prson is the Youngest Person.";
+    }
+    else if ((personTwoAge < personOneAge) && (personTwoAge < personThreeAge)) {
+        cout << "Second Prson is the Youngest Person.";
+    }
+    else {
+        cout << "Third Prson is the Youngest Person.";
+    }
+
+
+    return 0;
+}

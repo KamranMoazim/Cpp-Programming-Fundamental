@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int classesHeld, classesAttended;
+    float percent;
+
+    cout << "Enter Number of Classes Held : \n";
+    cin >> classesHeld;
+    cout << "Enter Number of Classes Attended : \n";
+    cin >> classesAttended;
+
+    percent = float(classesAttended * 100) / classesHeld;
+
+    if (percent > 75.00) {
+        cout << "You are Allowed to sit.";
+    }
+    else {
+        cout << "You are Not Allowed to sit.";
+    }
+
+    return 0;
+}

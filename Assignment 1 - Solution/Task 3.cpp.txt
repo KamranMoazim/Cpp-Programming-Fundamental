@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int units;
+    float  totalCost, finalTotalCost;
+    const float DiscountOffering = 10;
+
+    cout << "How many Units you have purchased : \n";
+    cin >> units;
+
+    totalCost = units * 100;
+
+    if (totalCost > 1000) {
+        // here we are giving discount.
+        totalCost -= (DiscountOffering / 100) * totalCost;
+    }
+    finalTotalCost = totalCost;
+
+    cout << "Your Total Cost is : " << finalTotalCost;
+
+    return 0;
+}

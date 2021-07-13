@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int age;
+    char gender, maritalStatus;
+
+    cout << "Enter Your Age : \n";
+    cin >> age;
+    cout << "Enter Your Gender (M or F) : \n";
+    cin >> gender;
+    cout << "Enter Your Marital Status (Y or N) : \n";
+    cin >> maritalStatus;
+
+    if ( (gender == 'F' || gender == 'f') && (age > 20 && age < 60) ) {
+        cout << "You can only work in Urban Areas.";
+    }
+    else if ( (gender == 'M' || gender == 'm') && (age > 20) && (age < 40) ) {
+        cout << "You can work Anywhere.";
+    }
+    else if ( (gender == 'M' || gender == 'm') && (age > 40) && (age < 60) ) {
+        cout << "You can only work in Urban Areas.";
+    }
+    else {
+        cout << "ERROR";
+    }
+
+    return 0;
+}

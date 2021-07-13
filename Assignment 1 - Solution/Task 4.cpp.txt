@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int salary,yearsOfService;
+    const float BonusPercentage=5.0;
+
+    cout << "Enter Your Salary Please : \n";
+    cin >> salary;
+    cout << "Enter Your Service Years : \n";
+    cin >> yearsOfService;
+
+
+    if (yearsOfService > 5){
+        // here we are giving bonus.
+        salary += (BonusPercentage / 100) * salary;;
+        cout << "Your Salary With bonus is : " << salary;
+    }
+    else {
+        cout << "Your Salary is : " << salary;
+    }
+
+
+    return 0;
+}
