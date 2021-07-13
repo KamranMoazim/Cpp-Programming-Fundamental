@@ -1,0 +1,162 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double Add(double a, double b) {
+    return a + b;
+}
+
+double Subtract(double a, double b) {
+    return a - b;
+}
+
+double Divide(double a, double b) {
+    return a / b;
+}
+
+double Multiply(double a, double b) {
+    return a * b;
+}
+
+double takeSin(double a) {
+    return sin(a);
+}
+
+double takeCos(double a) {
+    return cos(a);
+}
+
+double takeTan(double a) {
+    return tan(a);
+}
+
+
+
+
+int main() 
+{
+    double a, b, result;
+    char funcName, tryAgain='n';
+
+    do
+    {
+        cout << "Enter First Number : ";
+        cin >> a;
+        cout << "Enter Second Number : ";
+        cin >> b;
+
+        cout << "Enter A for Addition." << endl;
+        cout << "Enter B for Subtraction." << endl;
+        cout << "Enter C for Multiplication." << endl;
+        cout << "Enter D for Division." << endl;
+        cout << "Enter E for Sin of first Number." << endl;
+        cout << "Enter F for Cos of first Number.." << endl;
+        cout << "Enter G for Tan of first Number.." << endl;
+
+        cout << "Enter Respective Char to apply Function : ";
+        cin >> funcName;
+
+        switch (funcName)
+        {
+        case 'a':
+        case 'A':
+            result = Add(a, b);
+            break;
+        case 'b':
+        case 'B':
+            result = Subtract(a, b);
+            break;
+        case 'c':
+        case 'C':
+            result = Multiply(a, b);
+            break;
+        case 'd':
+        case 'D':
+            result = Divide(a, b);
+            break;
+        case 'e':
+        case 'E':
+            result = takeSin(a);
+            break;
+        case 'f':
+        case 'F':
+            result = takeCos(a);
+            break;
+        case 'g':
+        case 'G':
+            result = takeTan(a);
+            break;
+        default:
+            cout << "Invalid Input!";
+            break;
+        }
+
+        cout << "Output is : " << result << endl;
+
+        cout << "Do You wants to Apply Function Again (Y/N) : ";
+        cin >> tryAgain;
+
+    } while (tryAgain=='y' || tryAgain == 'Y');
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+    long int number1, number2, worker;
+    int count = 1;
+
+    cout << "Enter Number1 : ";
+    cin >> number1;
+    cout << "Enter Number2 : ";
+    cin >> number2;
+
+    for (int i = number1; i < number2; i++)
+    {
+        worker = i;
+        while (worker != 1)
+        {
+            if (worker % 2 == 0) {
+                worker /= 2;
+                // count++;
+            }
+            else
+            {
+                worker = (worker * 3) + 1;
+                // count++;
+            }
+            if (number1 <= worker && number2 >= worker)
+            {
+                count++;
+            }
+        }
+    }
+
+    cout << "Count is : " << count;
+
+    return 0;
+}
