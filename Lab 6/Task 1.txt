@@ -1,0 +1,59 @@
+// TASK 1
+
+#include <iostream>
+//#include <cmath>
+
+using namespace std;
+
+void time(int& hours, int& minutes, int& seconds) {
+    cout << "Hours : ";
+    cin >> hours;
+    if (hours < 0) {
+        return;
+    }
+    cout << "Minutes : ";
+    cin >> minutes;
+    cout << "Seconds : ";
+    cin >> seconds;
+}
+
+void totalTimeUsage(int& totalHours, int& totalMinutes, int& totalSeconds, int& hours, int& minutes, int& seconds) {
+    totalSeconds += seconds;
+    totalMinutes += minutes ;
+    totalHours += hours;
+}
+
+void calculateCharges(int& totalCharges, int& totalTime) {
+
+    int totalHours=0, totalMinutes=0, totalSeconds=0, hours=0, minutes=0, seconds=0;
+
+    cout << "Enter time of First Sitting : " << endl;
+    do {
+        time(hours, minutes, seconds);
+        if (hours > 0) {
+            totalTimeUsage(totalHours, totalMinutes, totalSeconds, hours, minutes, seconds);
+            cout << "Enter time of Next Sitting : " << endl;
+        }
+    } while (hours > 0);
+
+
+    totalSeconds /= 60;
+    totalMinutes += totalSeconds;
+    totalMinutes /= 60;
+    totalHours += totalMinutes;
+    totalTime = totalHours;
+    totalCharges = 25 * totalTime;
+    cout << "Total Charges are : " << totalCharges;
+}
+
+int main()
+{
+    int totalCharges = 0, totalTime = 0;
+
+    calculateCharges(totalCharges, totalTime);
+
+    //cout << 112 / 60;
+
+    return 0;
+}
+

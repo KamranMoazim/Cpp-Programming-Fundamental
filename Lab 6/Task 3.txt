@@ -1,0 +1,26 @@
+// TASK 3
+#include <iostream>
+
+using namespace std;
+
+void swapper(int& a, int& b) {
+    a = (a + b);
+    b = (a - b);
+    a = (a - b);
+}
+
+int main()
+{
+    int a = 10, b = 20;
+
+    cout << "values of a and b before swapping are : " << a << "  " << b << endl;
+
+    swapper(a, b);
+
+    cout << "values of a and b after swapping are : " << a << "  " << b << endl;
+
+    return 0;
+}
+
+
+
