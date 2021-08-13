@@ -1,0 +1,68 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+
+int main()
+{
+    const int SIZE = 10;
+    int array[SIZE] = {};
+    bool condSatisfy = false, repeat = false, found = true;
+    int worker, i = 0;
+
+    do
+    {
+        cout << "Enter Number : ";
+        cin >> worker;
+
+        if (worker > 0)
+        {
+            for (int j = 0; j < i; j++) {
+
+                if (array[j] != worker) {
+                    found = true;
+                }
+                else if (array[j] == worker)
+                {
+                    found = false;
+                }
+            }
+
+            if (found) {
+                array[i++] = worker;
+                cout << "Unique_Data => ";
+                for (int k = 0; k < i; k++)
+                {
+                    cout << array[k] << " ";
+                }
+                cout << endl;
+                repeat = false;
+                found = false;
+            }
+            else
+            {
+                cout << "Unique_Data => ";
+                for (int k = 0; k < i; k++)
+                {
+                    cout << array[k] << " ";
+                }
+                cout << endl;
+                repeat = true;
+            }
+
+            if (array[SIZE - 1] != 0 && !repeat) {
+                condSatisfy = true;
+            }
+        }
+        else {
+            cout << "Please Enter Positive Number.\n";
+        }
+
+    } while (!condSatisfy);
+
+    return 0;
+}
+
+

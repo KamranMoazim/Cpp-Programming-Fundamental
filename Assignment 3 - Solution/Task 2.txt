@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    bool smallAlphabetSatisfied = false, capitalAlphabetSatisfied = false, numberSatisfied = false, sixCharsSatisfied = false;
+    string password;
+    int i = 0, minimumPasswordLength = 6;
+
+    cout << "Enter Password : ";
+    cin >> password;
+
+    do
+    {
+        if (password == "quit")
+        {
+            break;
+        }
+
+        while (i < minimumPasswordLength)
+        {
+            if (password[i] >= 65 && password[i] <= 90)
+            {
+                capitalAlphabetSatisfied = true;
+            }
+            else if (password[i] >= 97 && password[i] <= 122)
+            {
+                smallAlphabetSatisfied = true;
+            }
+            else if (password[i] >= 48 && password[i] <= 57)
+            {
+                numberSatisfied = true;
+            }
+            else
+            {
+                break;
+            }
+            i++;
+        }
+
+        if (i > 5)
+        {
+            sixCharsSatisfied = true;
+        }
+
+        if (!sixCharsSatisfied)
+        {
+            cout << "Your Password must at least 6 characters long\n";
+        }
+        else if (!capitalAlphabetSatisfied)
+        {
+            cout << "Your Password must Contain Capital Alphabet\n";
+        }
+        else if (!smallAlphabetSatisfied)
+        {
+            cout << "Your Password must Contain Small Alphabet\n";
+        }
+        else if (!numberSatisfied)
+        {
+            cout << "Your Password must Contain Number\n";
+        }
+        else
+        {
+            cout << "\nYour Password is Strong\n";
+            break;
+        }
+
+        cout << "\nEnter Password Again : ";
+        cin >> password;
+        i = 0;
+        smallAlphabetSatisfied = false, capitalAlphabetSatisfied = false, numberSatisfied = false, sixCharsSatisfied = false;
+
+    } while (password != "quit" || (smallAlphabetSatisfied && capitalAlphabetSatisfied && numberSatisfied && sixCharsSatisfied));
+
+    return 0;
+}
+

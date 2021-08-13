@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int function(int a = 0, int b = 0) {
+    return a + b;
+}
+int main()
+{
+    int sum, a = 4, b = 6;
+
+    cout << "Sum when only a given " << function(a) << endl;
+    cout << "Sum when a and b both given " << function(a, b);
+
+    return 0;
+}
+
+

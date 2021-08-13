@@ -1,0 +1,117 @@
+#include <iostream>
+
+using namespace std;
+
+const int ROWS = 3;
+const int COLS = 3;
+
+int loShuMagicSquare(int[ROWS][COLS]);
+
+int main()
+{
+    int val;
+    int array[ROWS][COLS] = {
+                                 {2,7,6},
+                                 {9,5,1},
+                                 {4,3,8}
+    };
+
+    val = loShuMagicSquare(array);
+    if (val)
+    {
+        cout << "Your Entered array is Lo Shu Magic Square.";
+        return 0;
+    }
+
+    cout << "Your Entered array is NOT Lo Shu Magic Square.";
+    return 0;
+}
+
+int loShuMagicSquare(int array[ROWS][COLS]) {
+
+    int k = 1, valueSaver = 0;
+    int rowSum = 0, colSum = 0, diagSum = 0;
+    bool colSatisfy = false, rowSatisfy = false, diagSatisfy = false, worker = false;
+
+    /// for ROWS
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            rowSum += array[i][j];
+        }
+        if (i == k)
+        {
+            rowSatisfy = valueSaver == rowSum;
+            if (!rowSatisfy)
+            {
+                return 0;
+            }
+            k++;
+        }
+        valueSaver = rowSum;
+        rowSum = 0;
+    }
+
+    /// for COLS
+    for (int l = 0; l < ROWS; l++)
+    {
+        for (int i = 0; i < ROWS; i++)
+        {
+            worker = true;
+            for (int j = 0; j < COLS; j++)
+            {
+                if (worker)
+                {
+                    colSum += array[i][l];
+                    worker = false;
+                }
+            }
+        }
+        worker = true;
+        if (l == 1)
+        {
+            colSatisfy = valueSaver == colSum;
+            if (!colSatisfy)
+            {
+                return 0;
+            }
+        }
+        valueSaver = colSum;
+        colSum = 0;
+    }
+
+    /// for DIAGS
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            if (i == j)
+            {
+                diagSum += array[i][j];
+            }
+        }
+    }
+    valueSaver = diagSum;
+    diagSum = 0;
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            if ((i + j) == 2)
+            {
+                diagSum += array[i][j];
+            }
+        }
+    }
+    if (!diagSatisfy)
+    {
+        diagSatisfy = valueSaver == diagSum;
+        if (!diagSatisfy)
+        {
+            return 0;
+        }
+    }
+
+    return 1;
+}

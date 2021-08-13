@@ -1,0 +1,135 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+void inputArray(int array[], int size);
+void displayArray(int array[], int size);
+int frequency(int array[], int size);
+int frequency(int array[], int size, int number);
+
+int main()
+{
+    const int size = 3;
+    int number;
+    int array[size] = {};
+
+    cout << "******You are currently in main Function******\n";
+
+    inputArray(array, size);
+
+    displayArray(array, size);
+
+    frequency(array, size);
+
+    cout << "\nEnter Number to check Frequency in array : ";
+    cin >> number;
+
+    frequency(array, size, number);
+
+    return 0;
+}
+
+
+void inputArray(int array[], int size) {
+    int inputNumber, randomLocation;
+    bool locationSet = true;
+
+    srand(time(0));
+    randomLocation = (rand() % 10);
+
+    cout << "******You are currently in inputArray Function******\n";
+
+    for (int i = 0; i < size; i++)
+    {
+        do
+        {
+            cout << "Enter Number " << i + 1 << " which will place at random location of array : ";
+            cin >> inputNumber;
+            if (inputNumber < 0)
+            {
+                cout << "Please Enter Positive Number.\n";
+            }
+        } while (inputNumber < 0);
+
+        while (locationSet)
+        {
+            if (array[randomLocation] == 0)
+            {
+                array[randomLocation] = inputNumber;
+                locationSet = false;
+                randomLocation = (rand() % 10);
+            }
+            else
+            {
+                randomLocation = (rand() % 10);
+            }
+        }
+        locationSet = true;
+    }
+
+}
+
+void displayArray(int array[], int size) {
+
+    cout << "******You are currently in displayArray Function******\n";
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << "Element at location " << i + 1 << " of array is " << array[i] << endl;
+    }
+}
+
+int frequency(int array[], int size) {
+    int maxOccurence, maxOccurenceNumber, counter = 0;
+
+    cout << "******You are currently in frequency Function (without overloading)****** \n";
+
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (array[j] == array[i])
+            {
+                counter++;
+            }
+        }
+        if (i == 0)
+        {
+            maxOccurence = counter;
+            maxOccurenceNumber = array[i];
+        }
+        if (maxOccurence < counter)
+        {
+            maxOccurence = counter;
+            maxOccurenceNumber = array[i];
+        }
+        counter = 0;
+    }
+
+    cout << "Number " << maxOccurenceNumber << " has occured "<< maxOccurence << " times.";
+
+    return 0;
+}
+
+
+int frequency(int array[], int size, int number) {
+    int counter = 0;
+
+    cout << "******You are currently in frequency Function (with overloading)****** \n";
+
+    for (int j = 0; j < size; j++)
+    {
+        if (array[j] == number)
+        {
+            counter++;
+        }
+    }
+
+    cout << "Your Enterd number has occured " << counter << " times in array.";
+
+    return 0;
+}
+
+

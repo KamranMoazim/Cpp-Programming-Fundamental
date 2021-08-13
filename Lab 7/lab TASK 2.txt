@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    const int SIZE = 3;
+    int iqra[] = {90, 74, 60};
+    int usama[] = {87, 77, 61};
+    int osama[] = {88, 75, 63};
+    string subjects[] = {"BE","PF","DLD"};
+    int heighestMarks = 0;
+    int i = 1;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        heighestMarks = iqra[i];
+        if (heighestMarks > usama[i] && heighestMarks > osama[i])
+        {
+            heighestMarks = iqra[i];
+            cout << "IQRA has highest marks in " << subjects[i] << " i.e " << heighestMarks << endl;
+        }
+        else
+        {
+            heighestMarks = usama[i];
+            if (heighestMarks > iqra[i] && heighestMarks > osama[i])
+            {
+                heighestMarks = usama[i];
+                cout << "USAMA has highest marks in " << subjects[i] << " i.e " << heighestMarks << endl;
+            }
+            else
+            {
+                heighestMarks = osama[i];
+                cout << "OSAMA has highest marks in " << subjects[i] << " i.e " << heighestMarks << endl;
+            }
+        }
+    }
+    
+    //cout << "High are : "<< heighestMarks;
+ 
+    return 0;
+}
