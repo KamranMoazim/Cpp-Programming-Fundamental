@@ -21,7 +21,7 @@ int main()
     inputArray(array2, SIZE);
 
     intersectionArrays(array1, array2);
-    unionArrays(array1, array2);
+    unionArrays(array1, array2);  
 
     return 0;
 }
@@ -52,9 +52,11 @@ void displayArray(char array[]) {
 void unionArrays(char array1[], char array2[]) {
 
     char working[SIZE + SIZE] = {};
+    char temp;
 
-    int k = 0;
+    int k = 0, otherIndex = 0, particularChar = 0;
     bool found = false;
+
 
     for (int i = 0; i < SIZE; i++)
     {
@@ -81,16 +83,66 @@ void unionArrays(char array1[], char array2[]) {
         {
             working[k] = array2[i];
             found = false;
+            k++;
         }
     }
+
+    // for sorting
+    // capital
+    for (int i = 0; i < SIZE + SIZE; i++) {
+        for (int j = 0; j < SIZE + SIZE; j++) {
+            if (int(working[i]) >= 65 && int(working[i]) <= 90) {
+                temp = working[i];
+                working[i] = working[j];
+                working[j] = temp;
+            }
+        }
+    }
+    for (int i = 0; i < SIZE + SIZE; i++)
+    {
+        if (int(working[i]) >= 65 && int(working[i]) <= 90)
+        {
+            particularChar++;
+        }
+    }
+    // small
+    for (int i = particularChar; i < SIZE + SIZE; i++) {
+        for (int j = particularChar; j < SIZE + SIZE; j++) {
+            if (int(working[i]) >= 97 && int(working[i]) <= 122) {
+                temp = working[i];
+                working[i] = working[j];
+                working[j] = temp;
+            }
+        }
+    }
+    for (int i = 0; i < SIZE + SIZE; i++)
+    {
+        if (int(working[i]) >= 97 && int(working[i]) <= 122)
+        {
+            particularChar++;
+        }
+    }
+    // numbers
+    for (int i = particularChar; i < SIZE + SIZE; i++) {
+        for (int j = particularChar; j < SIZE + SIZE; j++) {
+            if (int(working[i]) >= 48 && int(working[i]) <= 57) {
+                temp = working[i];
+                working[i] = working[j];
+                working[j] = temp;
+            }
+        }
+    }
+
+    //cout << "UNION" << endl;
     displayArray(working);
 }
 
 
 void intersectionArrays(char array1[], char array2[]) {
     char working[SIZE + SIZE] = {};
+    char temp;
 
-    int k = 0;
+    int k = 0, particularChar = 0;
 
     for (int i = 0; i < SIZE; i++)
     {
@@ -104,5 +156,51 @@ void intersectionArrays(char array1[], char array2[]) {
         }
     }
 
+    // for sorting
+    // capital
+    for (int i = 0; i < SIZE + SIZE; i++) {
+        for (int j = 0; j < SIZE + SIZE; j++) {
+            if (int(working[i]) >= 65 && int(working[i]) <= 90) {
+                temp = working[i];
+                working[i] = working[j];
+                working[j] = temp;
+            }
+        }
+    }
+    for (int i = 0; i < SIZE + SIZE; i++)
+    {
+        if (int(working[i]) >= 65 && int(working[i]) <= 90)
+        {
+            particularChar++;
+        }
+    }
+    // small
+    for (int i = particularChar; i < SIZE + SIZE; i++) {
+        for (int j = particularChar; j < SIZE + SIZE; j++) {
+            if (int(working[i]) >= 97 && int(working[i]) <= 122) {
+                temp = working[i];
+                working[i] = working[j];
+                working[j] = temp;
+            }
+        }
+    }
+    for (int i = 0; i < SIZE + SIZE; i++)
+    {
+        if (int(working[i]) >= 97 && int(working[i]) <= 122)
+        {
+            particularChar++;
+        }
+    }
+    // numbers
+    for (int i = particularChar; i < SIZE + SIZE; i++) {
+        for (int j = particularChar; j < SIZE + SIZE; j++) {
+            if (int(working[i]) >= 48 && int(working[i]) <= 57) {
+                temp = working[i];
+                working[i] = working[j];
+                working[j] = temp;
+            }
+        }
+    }
+    //cout << "INTERSECTION" << endl;
     displayArray(working);
 }
