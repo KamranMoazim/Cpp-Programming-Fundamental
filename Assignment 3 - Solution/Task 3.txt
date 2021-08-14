@@ -2,36 +2,20 @@
 
 using namespace std;
 
+//const int ROWS = 2;
 const int ROWS = 3;
 const int COLS = 3;
 
-int loShuMagicSquare(int[ROWS][COLS]);
-
-int main()
-{
-    int val;
-    int array[ROWS][COLS] = {
-                                 {2,7,6},
-                                 {9,5,1},
-                                 {4,3,8}
-    };
-
-    val = loShuMagicSquare(array);
-    if (val)
-    {
-        cout << "Your Entered array is Lo Shu Magic Square.";
-        return 0;
-    }
-
-    cout << "Your Entered array is NOT Lo Shu Magic Square.";
-    return 0;
-}
-
-int loShuMagicSquare(int array[ROWS][COLS]) {
+int loShuMagicSquare(int array[][COLS]) {
 
     int k = 1, valueSaver = 0;
     int rowSum = 0, colSum = 0, diagSum = 0;
     bool colSatisfy = false, rowSatisfy = false, diagSatisfy = false, worker = false;
+
+    if (ROWS * COLS != 9)
+    {
+        return 0;
+    }
 
     /// for ROWS
     for (int i = 0; i < ROWS; i++)
@@ -115,3 +99,26 @@ int loShuMagicSquare(int array[ROWS][COLS]) {
 
     return 1;
 }
+
+
+int main()
+{
+
+    // loShuMagicSquare
+    int array[][COLS] = { {2,7,6}, {9,5,1}, {4,3,8} };
+
+    // NOT loShuMagicSquare
+    //int array[][COLS] = { {2,7,6}, {9,5,1}, {4,3,8} };
+    //int array[][COLS] = { {9,5,1}, {4,3,8} }; // before using this array change ROWS constant above.
+
+    if (loShuMagicSquare(array))
+    {
+        cout << "Your Entered array is Lo Shu Magic Square.\n";
+        return 0;
+    }
+
+    cout << "Your Entered array is NOT Lo Shu Magic Square.\n";
+    return 0;
+}
+
+

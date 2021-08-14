@@ -7,7 +7,8 @@ int main()
 {
     bool smallAlphabetSatisfied = false, capitalAlphabetSatisfied = false, numberSatisfied = false, sixCharsSatisfied = false;
     string password;
-    int i = 0, minimumPasswordLength = 6;
+    const int minimumPasswordLength = 6;
+    int i = 0;
 
     cout << "Enter Password : ";
     cin >> password;

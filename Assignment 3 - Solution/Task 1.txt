@@ -11,7 +11,7 @@ int frequency(int array[], int size, int number);
 
 int main()
 {
-    const int size = 3;
+    const int size = 5;
     int number;
     int array[size] = {};
 
@@ -59,12 +59,8 @@ void inputArray(int array[], int size) {
             {
                 array[randomLocation] = inputNumber;
                 locationSet = false;
-                randomLocation = (rand() % 10);
             }
-            else
-            {
-                randomLocation = (rand() % 10);
-            }
+            randomLocation = (rand() % 10);
         }
         locationSet = true;
     }
@@ -108,7 +104,15 @@ int frequency(int array[], int size) {
         counter = 0;
     }
 
-    cout << "Number " << maxOccurenceNumber << " has occured "<< maxOccurence << " times.";
+    if (maxOccurence == 1)
+    {
+        cout << "There is no Repeating Number in your Entered List." << endl;
+        cout << "So Returning the first Number from Random Generated Array." << endl;
+        cout << "Number " << maxOccurenceNumber << " has occured " << maxOccurence << " time.";
+        return 0;
+    }
+
+    cout << "Number " << maxOccurenceNumber << " has occured " << maxOccurence << " times.";
 
     return 0;
 }
@@ -127,9 +131,13 @@ int frequency(int array[], int size, int number) {
         }
     }
 
-    cout << "Your Enterd number has occured " << counter << " times in array.";
+    if (counter == 1)
+    {
+        cout << "Your Enterd number has occured " << counter << " time in array.\n";
+        return 0;
+    }
+
+    cout << "Your Enterd number has occured " << counter << " times in array.\n";
 
     return 0;
 }
-
-

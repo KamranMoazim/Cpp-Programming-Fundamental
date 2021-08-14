@@ -11,17 +11,15 @@ void intersectionArrays(char[], char[]);
 
 int main()
 {
-    int number;
     char array1[SIZE] = {};
     char array2[SIZE] = {};
-
 
     inputArray(array1, SIZE);
     cout << endl;
     inputArray(array2, SIZE);
 
     intersectionArrays(array1, array2);
-    unionArrays(array1, array2);  
+    unionArrays(array1, array2);
 
     return 0;
 }
@@ -133,7 +131,6 @@ void unionArrays(char array1[], char array2[]) {
         }
     }
 
-    //cout << "UNION" << endl;
     displayArray(working);
 }
 
@@ -201,6 +198,8 @@ void intersectionArrays(char array1[], char array2[]) {
             }
         }
     }
-    //cout << "INTERSECTION" << endl;
+
     displayArray(working);
 }
+
+
